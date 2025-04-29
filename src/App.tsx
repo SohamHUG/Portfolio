@@ -1,15 +1,22 @@
-
+import { Route, Routes } from "react-router-dom";
+import MainTemplate from "./components/Template/MainTeamplate";
+import { HomePage } from "./pages/Home";
+import { NotFound } from "./pages/Err/NotFound";
 
 function App() {
 
 
-  return (
-    <>
-      <p className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-5xl font-extrabold text-transparent ...">
-        Hello world
-      </p>
-    </>
-  )
+    return (
+        <>
+            <Routes>
+                <Route element={<MainTemplate />}>
+                    <Route path={'/'} element={<HomePage />} />
+
+                    <Route path={'*'} element={<NotFound />} />
+                </Route>
+            </Routes>
+        </>
+    )
 }
 
 export default App
