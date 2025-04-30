@@ -1,9 +1,12 @@
-import { useState, FC, MouseEvent } from "react";
+import { useEffect, useState, FC, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaGithub } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Header: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
+    const location = useLocation();
 
     const handleToggle = (e: MouseEvent<HTMLButtonElement>): void => {
         e.preventDefault();
@@ -12,10 +15,28 @@ const Header: FC = () => {
 
     const closeMenu = (): void => setIsOpen(false);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setHasScrolled(window.scrollY > 10);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="w-full sticky top-0 left-0 text-white z-50 border-b border-white/10">
+        <header
+            className={`w-full z-50 sticky top-0 left-0 right-0 text-white transition-all duration-300 ${hasScrolled
+                ? "md:bg-[#0a0e17]/80 md:backdrop-blur-sm md:border-b md:border-white/10"
+                : "md:bg-transparent md:border-b md:border-transparent"
+                }`}
+            // className="z-50 sticky top-0 left-0 right-0 text-white transition-all duration-300"
+        >
             {/* Mobile nav */}
-            <div className="flex items-center justify-between px-7 py-3 md:hidden">
+            <div className={`flex items-center justify-between px-7 py-3 md:hidden w-full transition-all duration-300 ${hasScrolled
+                ? "bg-[#0a0e17]/80 backdrop-blur-sm border-b border-white/10"
+                : "bg-transparent border-b border-transparent"
+                }`}>
                 <Link to="/" className="text-xl font-bold">
                     <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Soham</span>.H
                 </Link>
@@ -39,14 +60,33 @@ const Header: FC = () => {
                 </div>
 
                 <nav className="flex flex-col items-center justify-center flex-1 space-y-6 text-2xl font-medium">
-                    <Link to="/" onClick={closeMenu}>
+                    <Link
+                        to="/"
+                        onClick={closeMenu}
+                        className={`${location.pathname === "/" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
+                    >
                         Accueil
                     </Link>
-                    <Link to="/projets" onClick={closeMenu}>
+                    <Link
+                        to="/projets"
+                        onClick={closeMenu}
+                        className={`${location.pathname === "/projets" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
+                    >
                         Projets
                     </Link>
-                    <Link to="/a-propos" onClick={closeMenu}>
+                    <Link
+                        to="/a-propos"
+                        onClick={closeMenu}
+                        className={`${location.pathname === "/a-propos" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
+                    >
                         À propos
+                    </Link>
+                    <Link
+                        to="/contact"
+                        onClick={closeMenu}
+                        className={`${location.pathname === "/contact" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
+                    >
+                        Contact
                     </Link>
                 </nav>
 
@@ -64,25 +104,53 @@ const Header: FC = () => {
             </div>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center justify-between px-8 py-4 lg:px-40">
-                <Link to="/" className="text-2xl font-bold">
+            <div className={`hidden md:flex items-center justify-between max-w-7xl mx-auto px-6 py-4 w-full relative`}
+            >
+                <Link to="/" className="text-2xl font-bold z-10">
                     <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Soham</span>.H
                 </Link>
-                <nav className="flex gap-8 text-xl">
-                    <Link to="/">Accueil</Link>
-                    <Link to="/projets">Projets</Link>
-                    <Link to="/a-propos">À propos</Link>
+
+                <nav className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-8">
+                    <Link
+                        to="/"
+                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname === "/" ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
+                            }`}
+                    >
+                        Accueil
+                    </Link>
+                    <Link
+                        to="/projects"
+                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname === "/projects" ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
+                            }`}
+                    >
+                        Projets
+                    </Link>
+                    <Link
+                        to="/about"
+                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname === "/about" ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
+                            }`}
+                    >
+                        À propos
+                    </Link>
+                    <Link
+                        to="/contact"
+                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname === "/contact" ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
+                            }`}
+                    >
+                        Contact
+                    </Link>
                 </nav>
+
                 <a
                     href="https://github.com/SohamHUG"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 border px-1.5 py-1.5 rounded hover:bg-white/10 transition text-xl"
+                    className="flex items-center gap-2 border px-1.5 py-1.5 rounded hover:bg-white/10 transition text-xl z-10"
                 >
-                    <FaGithub />
-                    {/* <span className="hidden lg:inline">GitHub</span> */}
+                    <FaGithub size={20} />
                 </a>
             </div>
+
         </header>
     );
 };

@@ -19,12 +19,12 @@ const Background: React.FC = () => {
             '#b33c89',
         ];
 
-        const bubbleCount = 35;
+        const bubbleCount = 40;
         return Array.from({ length: bubbleCount }, (_, i) => ({
             id: i,
             cx: Math.random() * 100,
             cy: Math.random() * 100,
-            r: 0.2 + Math.random() * 0.3,
+            r: 0.1 + Math.random() * 0.3,
             color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
             opacity: 0.6 + Math.random() * 0.4 // Opacité entre 0.6 et 1
         }));
