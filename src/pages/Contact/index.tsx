@@ -92,7 +92,7 @@ export const ContactPage: React.FC = () => {
                     autoComplete="off"
                 />
 
-                <h1 className="text-center mb-8 text-3xl font-bold text-sky-400">Contactez-moi !</h1>
+                <h1 className="text-center mb-8 text-3xl font-bold text-sky-500">Contactez-moi !</h1>
 
                 <input
                     type="text"
@@ -136,6 +136,9 @@ export const ContactPage: React.FC = () => {
                     Ce site est protégé par reCAPTCHA et les
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline ml-1">Politique de confidentialité</a> et
                     <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline ml-1">Conditions d'utilisation</a> de Google s'appliquent.
+                </div>
+                <div className="text-sm text-white/60 mt-4 text-center">
+                    Un problème avec le formulaire ? <a href={'mailto:69.hugue@gmail.com?subject=Contact'} className="text-sky-400 underline">Envoyez-moi directement un email </a>
                 </div>
             </form>
 
