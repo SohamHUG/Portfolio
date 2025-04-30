@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/index";
 import BackGround from "../BackGround";
+import { Footer } from "../Footer";
 
 const MainTemplate: FunctionComponent = () => {
 
@@ -12,6 +13,8 @@ const MainTemplate: FunctionComponent = () => {
             <main>
                 <Outlet />
             </main>
+
+            <Footer />
         </div>
 
         // <div className="relative w-full h-screen bg-slate-900 overflow-hidden">

@@ -15,7 +15,7 @@ export const NotFound: React.FC = () => {
     }, []);
 
     return (
-        <div className="mt-7 flex items-center justify-center p-4 relative">
+        <div className="min-h-screen flex items-center justify-center p-4 relative">
             <div className="max-w-3xl mx-auto text-center">
                 {/* 404 */}
                 <h1 className=" text-9xl font-bold text-blue-600 mb-8">
