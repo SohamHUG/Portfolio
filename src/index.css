@@ -3,3 +3,9 @@
 .grecaptcha-badge {
     visibility: hidden !important;
 }
+
+@layer utilities {
+    .slow-spin {
+      animation: spin 4s linear infinite;
+    }
+  }

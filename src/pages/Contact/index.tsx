@@ -127,7 +127,7 @@ export const ContactPage: React.FC = () => {
                 <button
                     type="submit"
                     disabled={state.isSubmitting || !canSubmit}
-                    className={`w-full py-3 px-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition ${state.isSubmitting || !canSubmit ? "opacity-50 cursor-not-allowed" : ""
+                    className={`w-full py-3 px-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition ${state.isSubmitting || !canSubmit ? "opacity-50 cursor-not-allowed" : "hover:cursor-pointer"
                         }`}
                 >
                     {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
@@ -138,7 +138,7 @@ export const ContactPage: React.FC = () => {
                     <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline ml-1">Conditions d'utilisation</a> de Google s'appliquent.
                 </div>
                 <div className="text-sm text-white/60 mt-4 text-center">
-                    Un problème avec le formulaire ? <a href={'mailto:69.hugue@gmail.com?subject=Contact'} className="text-sky-400 underline">Envoyez-moi directement un email </a>
+                    Un problème avec le formulaire ? <a href={'mailto:69.hugue@gmail.com'} className="text-sky-400 underline">Envoyez-moi directement un email </a>
                 </div>
             </form>
 

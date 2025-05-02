@@ -3,6 +3,7 @@ import MainTemplate from "./components/Template/MainTeamplate";
 import { HomePage } from "./pages/Home";
 import { NotFound } from "./pages/Err/NotFound";
 import { ContactPage } from "./pages/Contact";
+import { AboutPage } from "./pages/About";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route element={<MainTemplate />}>
                     <Route path={'/'} element={<HomePage />} />
+                    <Route path={'/about'} element={<AboutPage />} />
                     <Route path={'/contact'} element={<ContactPage />} />
 
                     <Route path={'*'} element={<NotFound />} />

@@ -75,9 +75,9 @@ const Header: FC = () => {
                         Projets
                     </Link>
                     <Link
-                        to="/a-propos"
+                        to="/about"
                         onClick={closeMenu}
-                        className={`${location.pathname === "/a-propos" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
+                        className={`${location.pathname === "/about" ? "relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:w-full after:bg-sky-400 text-sky-400" : "text-white"}`}
                     >
                         À propos
                     </Link>
