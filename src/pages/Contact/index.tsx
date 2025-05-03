@@ -94,7 +94,7 @@ export const ContactPage: React.FC = () => {
     }, [state.success]);
 
     return (
-        <section className="min-h-[60vh] max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto flex items-start mt-15">
+        <section className="min-h-[60vh] max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto flex items-start mt-15 mb-20 md:mb-0">
             <form
                 ref={form}
                 onSubmit={sendEmail}
