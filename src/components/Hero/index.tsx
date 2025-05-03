@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
                 <div className="md:w-1/2 md:mt-10 " >
                     <div className="mx-auto w-64 h-64 md:w-80 md:h-80">
                         <div className="w-full h-full rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
-                            <img src="/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
+                            <img src="/img/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
                         </div>
 
                     </div>
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
                                 </span>
                             </button>
                         </Link>
-                        <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">
+                        <a href="/Doc/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">
                             <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 border border-input border-white/10 bg-transparent shadow-sm hover:cursor-pointer hover:bg-white/10 shadow-[0_0_15px_rgba(139,92,246,0.5)] h-9 px-4 py-2 gap-2 relative">
                                 <HiOutlineDocumentText size={20} />
                                 Voir mon CV
