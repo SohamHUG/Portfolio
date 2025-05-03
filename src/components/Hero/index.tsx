@@ -1,13 +1,14 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 
 export const Hero: React.FC = () => {
 
     return (
-        <section className="min-w-full">
-            <div className="flex flex-col md:flex-row items-center gap-10 px-4 md:px-6 md:w-9/10 lg:w-7/10 md:ml-auto md:mr-auto z-20 mt-10">
+        <div className="min-w-full min-h-full flex">
+            <div className="flex flex-col md:flex-row items-center gap-10 px-4 md:px-6 md:w-9/10 lg:w-7/10 md:mx-auto z-20 mt-10">
                 <div className="md:w-1/2 md:mt-10 " >
                     <div className="mx-auto w-64 h-64 md:w-80 md:h-80">
                         <div className="w-full h-full rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
@@ -28,14 +29,14 @@ export const Hero: React.FC = () => {
                         Développeur fullstack passionné, je conçois des solutions web modernes et dynamiques, en alliant performance et expérience utilisateur pour donner vie à vos projets.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start  z-30">
-                        <a href="/projects" className="inline-block">
-                            <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring  disabled:opacity-50 group overflow-hidden bg-transparent border border-primary rounded-md text-white hover:cursor-pointer hover:text-sky-400 shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-300 h-9 px-4 py-2 gap-2 ">
+                        <Link to={'/projects'} className="inline-block">
+                            <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring  disabled:opacity-50 group overflow-hidden bg-transparent border rounded-md text-white hover:cursor-pointer hover:text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all duration-300 h-9 px-4 py-2 gap-2 ">
                                 <span className=" z-10 flex items-center gap-2">
                                     Voir mes projets
                                     <FaArrowRight />
                                 </span>
                             </button>
-                        </a>
+                        </Link>
                         <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">
                             <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 border border-input border-white/10 bg-transparent shadow-sm hover:cursor-pointer hover:bg-white/10 shadow-[0_0_15px_rgba(139,92,246,0.5)] h-9 px-4 py-2 gap-2 relative">
                                 <HiOutlineDocumentText size={20} />
@@ -46,6 +47,6 @@ export const Hero: React.FC = () => {
                 </div>
             </div>
 
-        </section>
+        </div>
     )
 }

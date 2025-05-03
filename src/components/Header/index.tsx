@@ -38,7 +38,7 @@ const Header: FC = () => {
                 : "bg-transparent border-b border-transparent"
                 }`}>
                 <Link to="/" className="text-xl font-bold">
-                    <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Soham</span>.H
+                    <span className="bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">Soham</span>.H
                 </Link>
                 <button onClick={handleToggle} aria-label="Open menu">
                     <FaBars size={24} />
@@ -52,7 +52,7 @@ const Header: FC = () => {
             >
                 <div className="flex items-center justify-between px-7 py-3 border-b border-white/10">
                     <Link to="/" className="text-xl font-bold">
-                        <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Soham</span>.H
+                        <span className="bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">Soham</span>.H
                     </Link>
                     <button onClick={handleToggle} aria-label="Close menu">
                         <FaTimes size={24} />
@@ -107,7 +107,7 @@ const Header: FC = () => {
             <div className={`hidden md:flex items-center justify-between max-w-7xl mx-auto px-6 py-4 w-full relative`}
             >
                 <Link to="/" className="text-2xl font-bold z-10">
-                    <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Soham</span>.H
+                    <span className="bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">Soham</span>.H
                 </Link>
 
                 <nav className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-8">
@@ -120,7 +120,7 @@ const Header: FC = () => {
                     </Link>
                     <Link
                         to="/projects"
-                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname === "/projects" ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
+                        className={`relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-sky-400 after:transition-all after:duration-300 hover:after:w-full ${location.pathname.startsWith("/projects") ? "after:w-full after:bg-sky-400 text-sky-400" : "text-white"
                             }`}
                     >
                         Projets

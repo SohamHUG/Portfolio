@@ -35,6 +35,23 @@ export const ContactPage: React.FC = () => {
 
         if (form.current?.['bot-field'].value) return;
 
+        const formData = new FormData(form.current!);
+        const name = formData.get('name')?.toString().trim();
+        const email = formData.get('email')?.toString().trim();
+        const message = formData.get('message')?.toString().trim();
+
+        if (!name || !email || !message) {
+            setState({ ...state, error: "Tous les champs sont obligatoires." });
+            return;
+        }
+
+        // vérification email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setState({ ...state, error: "Veuillez entrer un email valide." });
+            return;
+        }
+
         setState({ ...state, isSubmitting: true, error: "" });
 
         try {
@@ -81,7 +98,7 @@ export const ContactPage: React.FC = () => {
             <form
                 ref={form}
                 onSubmit={sendEmail}
-                className=" mx-auto text-white w-full p-3 bg-gray-800 rounded-lg"
+                className=" mx-auto text-white w-full p-3 bg-blue-950/50 rounded-lg"
             >
                 {/* Champ honeypot caché */}
                 <input
@@ -92,28 +109,28 @@ export const ContactPage: React.FC = () => {
                     autoComplete="off"
                 />
 
-                <h1 className="text-center mb-8 text-3xl font-bold text-sky-500">Contactez-moi !</h1>
+                <h1 className=" text-center w-content mb-8 text-3xl font-bold bg-linear-to-r from-sky-300 to-blue-600 bg-clip-text text-transparent">Contactez-moi !</h1>
 
                 <input
                     type="text"
                     name="name"
                     placeholder="Nom"
                     required
-                    className="w-full p-3 mb-4 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-sky-400"
+                    className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
                 />
                 <input
                     type="email"
                     name="email"
                     placeholder="Email"
                     required
-                    className="w-full p-3 mb-4 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-sky-400"
+                    className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
                 />
                 <textarea
                     name="message"
                     placeholder="Votre message..."
                     required
                     rows={5}
-                    className="w-full p-3 mb-6 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-sky-400"
+                    className="w-full p-3 mb-6 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
                 />
 
                 {/* Feedback utilisateur */}
@@ -121,13 +138,13 @@ export const ContactPage: React.FC = () => {
                     <p className="mb-4 text-red-400 text-center">{state.error}</p>
                 )}
                 {state.success && (
-                    <p className="mb-4 text-green-400 text-center">Message envoyé avec succès ! Patientez avant un nouvel envoi</p>
+                    <p className="mb-4 text-green-400 text-center">Message envoyé avec succès !</p>
                 )}
 
                 <button
                     type="submit"
                     disabled={state.isSubmitting || !canSubmit}
-                    className={`w-full py-3 px-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition ${state.isSubmitting || !canSubmit ? "opacity-50 cursor-not-allowed" : "hover:cursor-pointer"
+                    className={`w-full py-3 px-4 bg-linear-to-r from-sky-500 to-blue-400 text-white rounded-lg transition ${state.isSubmitting || !canSubmit ? "opacity-50 cursor-not-allowed" : "hover:cursor-pointer hover:bg-sky-600"
                         }`}
                 >
                     {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
