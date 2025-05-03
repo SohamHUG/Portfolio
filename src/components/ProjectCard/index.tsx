@@ -7,7 +7,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     project,
 }) => {
     return (
-        <div className={`border border-sky-500 p-6 rounded-xl bg-blue-950/50 hover:shadow-lg flex flex-col justify-between hover:scale-110 transition-all duration-300`}>
+        <div className={`border border-sky-500 p-6 rounded-xl bg-blue-950/50 hover:shadow-lg flex flex-col justify-between hover:scale-101 transition-all duration-300`}>
             <div className="w-full h-40 mb-5 overflow-hidden rounded-lg bg-secondary/20 -mx-1">
                 <img
                     src={project.thumbnail}
