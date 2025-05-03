@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
 
                         <div className="flex gap-5 items-center">
                             <a href={'https://github.com/SohamHUG'} target="_blank" rel="noopener noreferrer"><FaGithub className="text-white/70 hover:text-white/50" size={25} /></a>
-                            <a href={'https://www.linkedin.com/in/soham-huguenin-7b5b71214/'} target="_blank" rel="noopener noreferrer"><FaLinkedin className="text-white/70 hover:text-white/50" size={25} /></a>
+                            <a href={'https://www.linkedin.com/in/soham-huguenin/'} target="_blank" rel="noopener noreferrer"><FaLinkedin className="text-white/70 hover:text-white/50" size={25} /></a>
                             <a href={'mailto:69.hugue@gmail.com'}><MdEmail className="text-white/70 hover:text-white/50" size={30} /></a>
                         </div>
 

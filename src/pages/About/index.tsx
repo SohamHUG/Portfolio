@@ -113,6 +113,11 @@ export const AboutPage: React.FC = () => {
                                 <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                                 <div className="flex items-center gap-2 text-sm">
                                     <span className="text-white/40">{exp.period}</span>
+                                    {exp.see &&
+                                        <span className="px-2 py-1 rounded-full bg-blue-900 text-xs text-white font-medium">
+                                            <a href={'https://diplome.3wa.fr/huguenin-soham'} target="_blank" rel="noopener noreferrer">{exp.see}</a>
+                                        </span>
+                                    }
                                 </div>
                             </div>
                             <div className="mb-3 text-lg flex items-center gap-2">

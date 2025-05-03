@@ -4,6 +4,7 @@ export const studies = [
         institution: "3W Academy",
         location: "Télé-présentiel",
         period: "Octobre 2023 - Avril 2025",
+        see: "Voir le diplôme",
         description:
             "Formation intensive axée sur l’apprentissage des technologies web modernes : HTML, CSS, JavaScript, React, Node.js, PHP et MySQL. Réalisation de projets complets en conditions réelles, de la conception d’interfaces utilisateur jusqu’à la création d’API REST sécurisées. Approche orientée bonnes pratiques, versioning Git, et méthodes agiles.",
     },

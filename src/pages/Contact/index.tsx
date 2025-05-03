@@ -94,11 +94,11 @@ export const ContactPage: React.FC = () => {
     }, [state.success]);
 
     return (
-        <section className="min-h-[70vh] max-w-9/10 md:max-w-5/10 mx-auto flex items-start mt-20">
+        <section className="min-h-[70vh] max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto flex items-start mt-15 mb-20">
             <form
                 ref={form}
                 onSubmit={sendEmail}
-                className=" mx-auto text-white w-full p-3 bg-blue-950/50 rounded-lg"
+                className=" mx-auto text-white w-full p-3 bg-blue-950/50 rounded-lg border border-sky-500"
             >
                 {/* Champ honeypot caché */}
                 <input
@@ -109,22 +109,26 @@ export const ContactPage: React.FC = () => {
                     autoComplete="off"
                 />
 
-                <h1 className=" text-center w-content mb-8 text-3xl font-bold bg-linear-to-r from-sky-300 to-blue-600 bg-clip-text text-transparent">Contactez-moi !</h1>
+                <h2 className=" text-center text-3xl text-sky-500 font-bold mb-5">Contactez-moi !</h2>
+                <p className="text-sm text-white/50 text-center mb-8">Un petit message pour en savoir plus ?</p>
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Nom"
-                    required
-                    className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
-                />
+                <div className="flex flex-col md:flex-row md:gap-4">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Nom"
+                        required
+                        className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded focus:ring-2 focus:ring-sky-400"
+                    />
+                </div>
+
                 <textarea
                     name="message"
                     placeholder="Votre message..."
@@ -143,9 +147,8 @@ export const ContactPage: React.FC = () => {
 
                 <button
                     type="submit"
-                    disabled={state.isSubmitting || !canSubmit}
-                    className={`w-full py-3 px-4 bg-linear-to-r from-sky-500 to-blue-400 text-white rounded-lg transition ${state.isSubmitting || !canSubmit ? "opacity-50 cursor-not-allowed" : "hover:cursor-pointer hover:bg-sky-600"
-                        }`}
+                    // disabled={state.isSubmitting || !canSubmit}
+                    className="w-full py-3 px-4 text-white rounded-lg transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-400 hover:from-blue-400 hover:to-sky-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
                 >
                     {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
                 </button>

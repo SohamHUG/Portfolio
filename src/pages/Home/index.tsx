@@ -1,7 +1,8 @@
 import React from "react";
 import { Hero } from "../../components/Hero";
 import { ProjectsList } from "../../components/ProjectsList";
-
+import { SkillsHome } from "../../components/SkillsHome";
+import { ContactPage } from "../Contact";
 
 export const HomePage: React.FC = () => {
 
@@ -15,6 +16,11 @@ export const HomePage: React.FC = () => {
                 <h2 className="text-3xl font-bold text-sky-500 mb-6">Mes projets</h2>
                 <ProjectsList limit={3} featured={true} />
             </section>
+
+            <SkillsHome />
+
+            <ContactPage />
+
         </>
     )
 }
