@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaArrowLeft, FaCode } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export const NotFound: React.FC = () => {
     useEffect(() => {
@@ -15,7 +16,12 @@ export const NotFound: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-[90vh] flex items-center justify-center p-4 relative">
+        <motion.div
+            initial={{ opacity: 0, y: 20, }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="min-h-[90vh] flex items-center justify-center p-4 relative"
+        >
             <div className="max-w-3xl mx-auto text-center">
                 {/* 404 */}
                 <h1 className=" text-9xl font-bold text-blue-600 mb-8">
@@ -67,6 +73,6 @@ export const NotFound: React.FC = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };

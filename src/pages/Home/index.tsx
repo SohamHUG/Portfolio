@@ -6,32 +6,26 @@ import { ContactPage } from "../Contact";
 import { motion, useInView } from "framer-motion";
 
 const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 80 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6,  } },
 };
 
 export const HomePage: React.FC = () => {
-    const heroRef = useRef(null);
+    // const heroRef = useRef(null);
     const projectsRef = useRef(null);
     const skillsRef = useRef(null);
     const contactReff = useRef(null);
 
-    const heroInView = useInView(heroRef, { once: true, margin: "-100px" });
+    // const heroInView = useInView(heroRef, { once: true, margin: "-100px" });
     const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
     const skillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
     const contactInView = useInView(contactReff, { once: true, margin: "-100px" });
 
     return (
         <>
-            <motion.section
-                ref={heroRef}
-                initial="hidden"
-                animate={heroInView ? "visible" : "hidden"}
-                variants={fadeInUp}
-                className="min-h-[80vh] min-w-full flex justify-center mb-[20vh]"
-            >
+            <section className="min-h-[80vh] min-w-full flex justify-center mb-[20vh]">
                 <Hero />
-            </motion.section>
+            </section>
 
             <motion.section
                 ref={projectsRef}

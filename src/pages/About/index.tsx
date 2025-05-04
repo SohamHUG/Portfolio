@@ -10,7 +10,7 @@ export const AboutPage: React.FC = () => {
             <motion.div
                 initial={{ opacity: 0, }}
                 animate={{ opacity: 1, }}
-                transition={{ duration: 0.8, }}
+                transition={{ duration: 0.5, }}
                 className="text-center mb-20"
             >
                 <h1 className="text-5xl font-bold text-sky-500 mb-6">À propos de moi</h1>
@@ -23,9 +23,9 @@ export const AboutPage: React.FC = () => {
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-24">
                 {/* Image */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, scale: 0.9, rotate: 90 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                     className="flex justify-center"
                 >
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
