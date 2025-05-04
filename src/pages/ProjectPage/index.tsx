@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { projects } from "../../data";
 import { LuArrowLeft, LuCalendar, LuGithub, LuGlobe } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 export const ProjectDetailPage: React.FC = () => {
     const { projectId } = useParams<{ projectId: string }>();
@@ -13,7 +14,12 @@ export const ProjectDetailPage: React.FC = () => {
     }
 
     return (
-        <section className="py-5 px-4 max-w-4xl mx-auto">
+        <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="py-5 px-4 max-w-4xl mx-auto"
+        >
             <button
                 onClick={() => navigate("/projects")}
                 className="flex items-center font-bold gap-2 text-sm text-sky-400 hover:underline hover:cursor-pointer mb-6"
@@ -87,6 +93,6 @@ export const ProjectDetailPage: React.FC = () => {
             </p>
 
 
-        </section>
+        </motion.section>
     );
 };
