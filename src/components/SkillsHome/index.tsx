@@ -4,11 +4,7 @@ import { LuComputer, LuServer, LuSettings, } from "react-icons/lu";
 
 export const SkillsHome: React.FC = () => {
     return (
-        <section className="my-30 max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto">
-            <h2 className=" text-center text-3xl text-sky-500 font-bold flex items-center justify-center gap-3 mb-10">
-                Mes compétences
-            </h2>
-
+        <>
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Frontend */}
                 <div className="p-5 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
@@ -73,6 +69,6 @@ export const SkillsHome: React.FC = () => {
                 </div>
 
             </div>
-        </section>
+        </>
     )
 }

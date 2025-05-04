@@ -1,29 +1,45 @@
 import React from "react";
 import { experiences, personalInfo, skills, studies } from "../../data";
 import { LuBriefcase, LuCode, LuComputer, LuDatabase, LuGitBranch, LuGlobe, LuGraduationCap, LuPalette, LuServer, LuSettings, LuUser } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 export const AboutPage: React.FC = () => {
     return (
         <div className="min-h-screen py-10 px-4 max-w-6xl mx-auto">
             {/* Titre principal */}
-            <div className="text-center mb-20">
+            <motion.div
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                transition={{ duration: 0.8, }}
+                className="text-center mb-20"
+            >
                 <h1 className="text-5xl font-bold text-sky-500 mb-6">À propos de moi</h1>
                 <p className="text-lg text-white/90 max-w-3xl mx-auto">
                     Jeune développeur Fullstack spécialisé en JavaScript (React/Node) et PHP, j’ai acquis une double expertise frontend et backend au cours de mon alternance. Partisan du code propre et des bonnes pratiques, je conçois des interfaces réactives connectées à des backends robustes. Mon objectif : créer des solutions efficaces, centrées sur les besoins utilisateurs, tout en garantissant la qualité et la maintenabilité du code.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Image + Infos personnelles + Atouts */}
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-24">
                 {/* Image */}
-                <div className="flex justify-center">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex justify-center"
+                >
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
                         <img src="/img/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Infos & Atouts */}
-                <div className="lg:col-span-2 space-y-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="lg:col-span-2 space-y-10"
+                >
                     {/* Infos personnelles */}
                     <div className="mx-auto">
                         <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-4">
@@ -65,11 +81,16 @@ export const AboutPage: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* Expériences */}
-            <section className="mb-15">
+            <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-15"
+            >
                 <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-10">
                     <LuBriefcase className="text-sky-500" size={30} />
                     Expérience professionnelle
@@ -97,7 +118,7 @@ export const AboutPage: React.FC = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
             {/* Formation */}
             <section>
