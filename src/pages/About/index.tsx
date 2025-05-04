@@ -23,9 +23,9 @@ export const AboutPage: React.FC = () => {
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-24">
                 {/* Image */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9, rotate: 90 }}
+                    initial={{ opacity: 0, scale: 0.5, rotate: 60 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
                     className="flex justify-center"
                 >
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
@@ -37,7 +37,7 @@ export const AboutPage: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
                     className="lg:col-span-2 space-y-10"
                 >
                     {/* Infos personnelles */}
