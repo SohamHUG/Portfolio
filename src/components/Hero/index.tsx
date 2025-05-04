@@ -30,8 +30,12 @@ export const Hero: React.FC = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start  z-30">
                         <Link to={'/projects'} className="inline-block">
-                            <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring  disabled:opacity-50 group overflow-hidden bg-transparent border rounded-md text-white hover:cursor-pointer hover:text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all duration-300 h-9 px-4 py-2 gap-2 ">
-                                <span className=" z-10 flex items-center gap-2">
+                            <button className="relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 group overflow-hidden bg-transparent border border-sky-500 rounded-md text-white hover:cursor-pointer shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all duration-300 h-9 px-4 py-2 gap-2">
+                                {/* Background animation */}
+                                <span className="absolute inset-0 bg-sky-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0" />
+
+                                {/* Text + Icon in front */}
+                                <span className="relative z-10 flex items-center gap-2 group-hover:text-white">
                                     Voir mes projets
                                     <FaArrowRight />
                                 </span>

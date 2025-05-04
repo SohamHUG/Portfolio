@@ -1,13 +1,20 @@
 import React from "react";
 import { ProjectCardProps } from "./props";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuExternalLink, LuGithub } from "react-icons/lu";
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
     project,
 }) => {
+    const navigate = useNavigate();
+
+    const navTo = (e: React.MouseEvent<HTMLDivElement>) => {
+        if ((e.target as HTMLElement).closest("a, button")) return;
+        navigate(`/projects/${project.id}`);
+    }
+
     return (
-        <div className={`border border-sky-500 p-6 rounded-xl bg-blue-950/50 hover:shadow-lg flex flex-col justify-between hover:scale-101 transition-all duration-300`}>
+        <div onClick={navTo} className={`border border-sky-500 p-6 rounded-xl bg-blue-950/50 hover:shadow-lg flex flex-col justify-between group hover:scale-101 hover:cursor-pointer transition-all duration-300`}>
             <div className="w-full h-40 mb-5 overflow-hidden rounded-lg bg-secondary/20 -mx-1">
                 <img
                     src={project.thumbnail}
@@ -28,12 +35,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 )}
             </div>
             <div className="flex items-center gap-3">
-
                 <Link
                     to={`/projects/${project.id}`}
-                    className="flex-grow inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 px-4 py-2 bg-transparent border rounded-md text-white hover:cursor-pointer hover:text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all duration-300 "
+                    className="relative flex-grow inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 px-4 py-2 bg-transparent border border-sky-500 rounded-md text-white overflow-hidden group transition-all duration-300"
                 >
-                    Voir le projet
+                    <span className="absolute inset-0 bg-sky-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0" />
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                        Voir le projet
+                    </span>
                 </Link>
 
                 {project.website && (

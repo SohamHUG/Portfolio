@@ -18,7 +18,7 @@ export const AboutPage: React.FC = () => {
                 {/* Image */}
                 <div className="flex justify-center">
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
-                        <img src="/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
+                        <img src="/img/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
                     </div>
                 </div>
 

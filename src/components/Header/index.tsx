@@ -51,7 +51,7 @@ const Header: FC = () => {
                     }`}
             >
                 <div className="flex items-center justify-between px-7 py-3 border-b border-white/10">
-                    <Link to="/" className="text-xl font-bold">
+                    <Link to="/" className="text-xl font-bold" onClick={closeMenu}>
                         <span className="bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">Soham</span>.H
                     </Link>
                     <button onClick={handleToggle} aria-label="Close menu">

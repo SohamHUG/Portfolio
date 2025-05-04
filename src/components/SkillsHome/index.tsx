@@ -11,7 +11,7 @@ export const SkillsHome: React.FC = () => {
 
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Frontend */}
-                <div className="p-5 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                <div className="p-5 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
                     <h3 className="text-xl font-semibold flex items-center gap-3 text-white capitalize mb-4">
                         <LuComputer size={20} />
                         Frontend
@@ -26,7 +26,7 @@ export const SkillsHome: React.FC = () => {
                 </div>
 
                 {/* Backend */}
-                <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
                     <h3 className="text-xl font-semibold flex items-center gap-3 text-white capitalize mb-4">
                         <LuServer size={20} />
                         Backend
@@ -48,7 +48,7 @@ export const SkillsHome: React.FC = () => {
                 </div>
 
                 {/* Autres */}
-                <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
                     <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
                         <LuSettings size={20} />
                         Autres

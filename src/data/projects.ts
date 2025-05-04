@@ -40,9 +40,9 @@ export const projects: IProject[] = [
         title: 'Portfolio personnel',
         createdAt: '2025-04-30',
         description: 'Site vitrine personnel développé pour présenter mes projets, compétences et parcours de manière claire et interactive.',
-        longDescription: `Ce portfolio a été conçu comme un projet technique à part entière. Il met en valeur mes compétences en React, TypeScript et en design moderne avec Tailwind CSS. L’application est construite avec Vite pour des performances optimales, utilise EmailJS pour la soumission du formulaire de contact, et intègre Google reCAPTCHA pour la sécurité. Le site est responsive, accessible, et optimisé pour offrir une navigation fluide sur tous les supports.`,
+        longDescription: `Ce portfolio a été conçu comme un projet technique à part entière. Il met en valeur mes compétences en React, TypeScript et en design moderne avec Tailwind CSS. L’application est construite avec Vite pour des performances optimales. Le site est responsive, accessible, et optimisé pour offrir une navigation fluide sur tous les supports.`,
         thumbnail: '/img/portfolio.png',
-        technologies: ['React', 'Vite', 'TypeScript', 'Tailwind', 'EmailJS', 'reCAPTCHA'],
+        technologies: ['React', 'Vite', 'TypeScript', 'Tailwind',],
         github: 'https://github.com/SohamHUG/Portfolio',
         website: '',
         featured: false
