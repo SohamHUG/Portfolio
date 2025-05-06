@@ -1,4 +1,6 @@
-export const experiences = [
+import { IExperiences } from "../types/IExperiences";
+
+export const experiences: IExperiences[] = [
     {
         title: "Développeur Freelance",
         company: "Freelance",

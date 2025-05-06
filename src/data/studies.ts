@@ -1,4 +1,6 @@
-export const studies = [
+import { IStudies } from "../types/IStudies";
+
+export const studies: IStudies[] = [
     {
         title: "Développeur web full stack",
         institution: "3W Academy",

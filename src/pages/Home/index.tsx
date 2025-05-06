@@ -3,7 +3,7 @@ import { Hero } from "../../components/Hero";
 import { ProjectsList } from "../../components/ProjectsList";
 import { SkillsHome } from "../../components/SkillsHome";
 import { motion, useInView } from "framer-motion";
-import { ContactForm } from "../../components/Contact";
+import { ContactForm } from "../../components/ContactForm";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 80 },

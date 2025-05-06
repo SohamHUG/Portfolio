@@ -98,10 +98,7 @@ export const ContactForm: React.FC = () => {
     }, [state.success]);
 
     return (
-        <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+        <div
             className="flex flex-col md:flex-row md:flex-wrap items-center justify-center content-center gap-3 max-w-8/10 md:max-w-9/10 xl:max-w-7/10 mx-auto mt-15 mb-20"
         >
 
@@ -109,8 +106,16 @@ export const ContactForm: React.FC = () => {
 
 
             <div className="h-full w-full mx-auto flex flex-col md:flex-row justify-evenly items-stretch gap-3">
-                <div className="flex flex-col gap-3 h-full justify-between md:w-3/10">
-                    <a href="mailto:69.hugue@gmail.com" className="group h-full p-2 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col gap-3 h-full justify-between md:w-3/10"
+                >
+                    <a
+                        href="mailto:69.hugue@gmail.com"
+                        className="group h-full p-2 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
+                    >
                         <MdMail size={35} />
                         <span className="text-sky-500 font-bold">Email</span>
                         <span className="text-white/50 flex items-center justify-center gap-1">
@@ -119,7 +124,10 @@ export const ContactForm: React.FC = () => {
                         </span>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/soham-huguenin/" target="_blank" rel="noopener noreferrer" className="group h-full p-4 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300">
+                    <a
+                        href="https://www.linkedin.com/in/soham-huguenin/" target="_blank" rel="noopener noreferrer"
+                        className="group h-full p-4 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
+                    >
                         <FaLinkedin size={30} />
                         <span className="text-sky-500 font-bold">Linkedin</span>
                         <span className="text-white/50 flex items-center justify-center gap-1">
@@ -127,7 +135,7 @@ export const ContactForm: React.FC = () => {
                             <BiRightArrowAlt className="transition-transform duration-300 group-hover:translate-x-1" size={18} />
                         </span>
                     </a>
-                </div>
+                </motion.div>
 
                 <form
                     ref={form}
@@ -146,24 +154,33 @@ export const ContactForm: React.FC = () => {
 
                     {/* <p className="mt-5 mb-3 md:mt-0 text-white/50 text-center">Un petit message pour en savoir plus ?</p> */}
 
-                    <div >
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Nom"
-                            required
-                            className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded-xl focus:ring-2 focus:ring-sky-400"
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            required
-                            className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded-xl focus:ring-2 focus:ring-sky-400"
-                        />
-                    </div>
+                    {/* <div > */}
+                    <motion.input
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        type="text"
+                        name="name"
+                        placeholder="Nom"
+                        required
+                        className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded-xl focus:ring-2 focus:ring-sky-400"
+                    />
+                    <motion.input
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        className="w-full p-3 mb-4 bg-sky-900/50 border border-sky-400 rounded-xl focus:ring-2 focus:ring-sky-400"
+                    />
+                    {/* </div> */}
 
-                    <textarea
+                    <motion.textarea
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
                         name="message"
                         placeholder="Votre message..."
                         required
@@ -179,18 +196,24 @@ export const ContactForm: React.FC = () => {
                         <p className="mb-4 text-green-400 text-center">Message envoyé avec succès !</p>
                     )}
 
-                    <button
-                        type="submit"
-                        // disabled={state.isSubmitting || !canSubmit}
-                        className="w-full py-3 px-4 text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-400 hover:from-blue-400 hover:to-sky-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                        {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
-                    </button>
-                    <div className="text-xs text-gray-500 mt-4 text-center">
-                        Ce site est protégé par reCAPTCHA et les
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline ml-1">Politique de confidentialité</a> et
-                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline ml-1">Conditions d'utilisation</a> de Google s'appliquent.
-                    </div>
+                        <button
+                            type="submit"
+                            // disabled={state.isSubmitting || !canSubmit}
+                            className="w-full py-3 px-4 text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-400 hover:from-blue-400 hover:to-sky-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
+                        >
+                            {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
+                        </button>
+                        <div className="text-xs text-gray-500 mt-4 text-center">
+                            Ce site est protégé par reCAPTCHA et les
+                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline ml-1">Politique de confidentialité</a> et
+                            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline ml-1">Conditions d'utilisation</a> de Google s'appliquent.
+                        </div>
+                    </motion.div>
                     {/* <div className="text-sm text-white/60 mt-4 text-center">
                         Un problème avec le formulaire ? <a href={'mailto:69.hugue@gmail.com'} className="text-sky-400 underline">Envoyez-moi directement un email </a>
                     </div> */}
@@ -200,6 +223,6 @@ export const ContactForm: React.FC = () => {
 
 
 
-        </motion.section>
+        </div>
     );
 };

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import MainTemplate from "./components/Template/MainTeamplate";
 import { HomePage } from "./pages/Home";
 import { NotFound } from "./pages/Err/NotFound";
-import { ContactPage } from "./pages/Contact";
+import { ContactPage } from "./pages/ContactPage";
 import { AboutPage } from "./pages/About";
 import { ProjectsPage } from "./pages/Projects";
 import { ProjectDetailPage } from "./pages/ProjectPage";
