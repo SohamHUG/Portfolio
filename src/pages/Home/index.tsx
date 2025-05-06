@@ -2,12 +2,12 @@ import React, { useRef } from "react";
 import { Hero } from "../../components/Hero";
 import { ProjectsList } from "../../components/ProjectsList";
 import { SkillsHome } from "../../components/SkillsHome";
-import { ContactPage } from "../Contact";
 import { motion, useInView } from "framer-motion";
+import { ContactForm } from "../../components/Contact";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6,  } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, } },
 };
 
 export const HomePage: React.FC = () => {
@@ -57,7 +57,10 @@ export const HomePage: React.FC = () => {
                 animate={contactInView ? "visible" : "hidden"}
                 variants={fadeInUp}
             >
-                <ContactPage />
+                <h2 className=" text-center text-3xl text-sky-500 font-bold flex items-center justify-center gap-3 mb-10">
+                    Contactez-moi !
+                </h2>
+                <ContactForm />
             </motion.div>
         </>
     );
