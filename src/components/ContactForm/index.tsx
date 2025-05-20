@@ -69,6 +69,20 @@ export const ContactForm: React.FC = () => {
                 publicKey
             );
 
+            const verificationResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `secret=${import.meta.env.VITE_RECAPTCHA_SECRET_KEY}&response=${token}`,
+            });
+
+            const verificationData = await verificationResponse.json();
+
+            if (!verificationData.success) {
+                throw new Error("Échec de la vérification reCAPTCHA");
+            }
+
             // Stocke le timestamp dans le localStorage
             localStorage.setItem('lastEmailSubmission', Date.now().toString());
 
