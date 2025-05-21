@@ -5,6 +5,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 import { FaLinkedin } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import { motion } from "framer-motion";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export const ContactForm: React.FC = () => {
     const form = useRef<HTMLFormElement>(null);
@@ -49,7 +50,6 @@ export const ContactForm: React.FC = () => {
             return;
         }
 
-        // vérification email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             setState({ ...state, error: "Veuillez entrer un email valide." });
@@ -59,31 +59,45 @@ export const ContactForm: React.FC = () => {
         setState({ ...state, isSubmitting: true, error: "" });
 
         try {
-            const token = await executeRecaptcha?.('contact_submit');
-            if (!token) throw new Error("CAPTCHA invalide");
+            // 1. Vérifiez que executeRecaptcha est disponible
+            if (!executeRecaptcha) {
+                throw new Error("reCAPTCHA non chargé");
+            }
 
-            await emailjs.sendForm(
+            // 2. Exécutez reCAPTCHA
+            const token = await executeRecaptcha('contact_submit');
+
+            // 3. Validez d'abord le token avant d'envoyer l'email
+            const verificationResponse = await fetch('https://recaptcha-verification-4lrl.vercel.app/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({ token }),
+                // credentials: 'include' // Important pour les cookies si nécessaire
+            });
+
+            const verificationData = await verificationResponse.json();
+
+            console.log(verificationData)
+
+            if (!verificationData.success) {
+                throw new Error("Validation anti-robot échouée. Veuillez réessayer.");
+            }
+
+            // 4. Envoyez l'email seulement si reCAPTCHA est validé
+            const result = await emailjs.sendForm(
                 serviceId,
                 templateId,
                 form.current!,
                 publicKey
             );
 
-            const verificationResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `secret=${import.meta.env.VITE_RECAPTCHA_SECRET_KEY}&response=${token}`,
-            });
-
-            const verificationData = await verificationResponse.json();
-
-            if (!verificationData.success) {
-                throw new Error("Échec de la vérification reCAPTCHA");
+            if (result.status !== 200) {
+                throw new Error("Erreur lors de l'envoi de l'email");
             }
 
-            // Stocke le timestamp dans le localStorage
             localStorage.setItem('lastEmailSubmission', Date.now().toString());
 
             setState({
@@ -93,10 +107,11 @@ export const ContactForm: React.FC = () => {
             });
             form.current?.reset();
         } catch (error) {
+            console.error("Erreur complète:", error);
             setState({
                 isSubmitting: false,
                 success: false,
-                error: "Erreur lors de l'envoi"
+                error: error instanceof Error ? error.message : "Erreur lors de l'envoi"
             });
         }
     };
@@ -220,7 +235,14 @@ export const ContactForm: React.FC = () => {
                             // disabled={state.isSubmitting || !canSubmit}
                             className="w-full py-3 px-4 text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-400 hover:from-blue-400 hover:to-sky-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
                         >
-                            {state.isSubmitting ? "Envoi en cours..." : "Envoyer"}
+                            {state.isSubmitting ? (
+                                <span className="flex items-center justify-center gap-2">
+                                    <AiOutlineLoading3Quarters className="animate-spin" />
+                                    Envoi en cours...
+                                </span>
+                            ) : (
+                                "Envoyer"
+                            )}
                         </button>
                         <div className="text-xs text-gray-500 mt-4 text-center">
                             Ce site est protégé par reCAPTCHA et les
