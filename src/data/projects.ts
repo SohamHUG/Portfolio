@@ -8,7 +8,7 @@ export const projects: IProject[] = [
         description: 'Plateforme permettant aux utilisateurs de consulter, commenter et publier des articles par catégorie.',
         longDescription: `OurBlog est une application web de type blog permettant aux utilisateurs de consulter, commenter et publier des articles classés par catégories. Ce projet, réalisé dans le cadre de mon projet de fin de formation, m’a permis de valider mon titre de Développeur Fullstack. J’y ai développé une API REST robuste avec Node.js et Express, incluant un système d’authentification sécurisé via JWT, une gestion des rôles utilisateurs (administrateur, auteur, lecteur), ainsi que l’implémentation complète des opérations CRUD pour les articles et les commentaires. Côté front-end, l’interface a été conçue avec React, Redux et Vite, pour une expérience fluide et moderne.`,
         thumbnail: '/img/ourblog.png',
-        technologies: ['React', 'JavaScript', 'Vite', 'Redux', 'Node.js', 'Express', 'API', 'Scss', 'Sass'],
+        technologies: ['React', 'JavaScript', 'Vite', 'Redux', 'Node.js', 'Express', 'API', 'Scss',],
         github: 'https://github.com/SohamHUG/OurBlog',
         website: 'https://our-blog-client.vercel.app/',
         featured: true,

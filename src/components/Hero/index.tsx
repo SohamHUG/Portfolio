@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
                         transition={{ duration: 0.5, }}
                         className=" md:mt-0"
                     >
-                        <span className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-blue-600 text-white mt-3 mb-6">Développeur Fullstack Junior</span>
+                        <span className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-blue-600 text-white mt-3 mb-6">Développeur Fullstack</span>
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20, }}
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
                             </button>
                         </Link>
                         <a href="/Doc/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">
-                            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 border border-input border-white/10 bg-transparent shadow-sm hover:cursor-pointer hover:bg-white/10 shadow-[0_0_15px_rgba(139,92,246,0.5)] h-9 px-4 py-2 gap-2 relative">
+                            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 border border-input border-white/10 bg-transparent hover:cursor-pointer hover:bg-white/10 shadow-[0_0_15px_rgba(139,92,246,0.5)] h-9 px-4 py-2 gap-2 relative">
                                 <HiOutlineDocumentText size={20} />
                                 Voir mon CV
                             </button>
