@@ -1,6 +1,6 @@
 import React from "react";
 import { experiences, personalInfo, skills, studies } from "../../data";
-import { LuBriefcase, LuCode, LuComputer, LuDatabase, LuGitBranch, LuGlobe, LuGraduationCap, LuPalette, LuServer, LuSettings, LuUser } from "react-icons/lu";
+import { LuBriefcase, LuCode, LuComputer, LuDatabase, LuGitBranch, LuGlobe, LuGraduationCap, LuPalette, LuServer, LuUser } from "react-icons/lu";
 import { motion } from "framer-motion";
 
 export const AboutPage: React.FC = () => {
@@ -266,23 +266,6 @@ export const AboutPage: React.FC = () => {
 
 
 
-                </div>
-
-                {/* En cours */}
-                <div className="p-6 mt-8 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
-                    <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
-                        <LuSettings className="animate-spin slow-spin" />
-                        En cours d'apprentissage...
-                    </h3>
-                    <ul className="flex flex-wrap gap-2">
-                        {skills.workInProgress.map((item, index) => (
-
-                            <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
-                                {item}
-                            </li>
-
-                        ))}
-                    </ul>
                 </div>
             </section>
 
