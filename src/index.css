@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 .grecaptcha-badge {
-    visibility: hidden !important;
+  visibility: hidden !important;
 }
 
 @layer utilities {
-    .slow-spin {
-      animation: spin 4s linear infinite;
-    }
+  .slow-spin {
+    animation: spin 4s linear infinite;
   }
+}
+
+.prose a {
+  @apply text-sky-500 underline hover:text-sky-400;
+}

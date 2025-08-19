@@ -2,6 +2,30 @@ import { IProject } from "../types/IProjects"
 
 export const projects: IProject[] = [
     {
+        id: 'phx',
+        title: 'Phoenix',
+        createdAt: '2025-08-18',
+        description: 'Landing page immersive d’un groupe de musique fictif, réalisée en une semaine dans le cadre du Brief of the Week.',
+        longDescription: `
+            Le label <strong>B-WEEK Entertainment</strong> lance “Phoenix”.  
+            Ils viennent de signer le groupe et souhaitent une landing page qui présente son univers, sa musique ainsi que leur premier single.<br />
+
+            Ce projet a été développé en une semaine dans le cadre du <a href="https://briefweek.fr/" target="_blank">Brief of the Week (BOTW)</a>. 
+            Le BOTW est un challenge hebdomadaire qui encourage la collaboration entre designers et développeurs, afin de progresser ensemble, expérimenter de nouvelles approches et enrichir son portfolio. 
+
+            Pour ce projet, j’ai collaboré avec <a href="https://www.linkedin.com/in/gauravmalii/" target="_blank">Gaurav Mali</a>, un designer expérimenté, ce qui m’a permis de mieux comprendre l’importance du travail en équipe dans un contexte créatif. 
+            De mon côté, j’ai notamment appris à manier Three.js pour intégrer un élément 3D immersif et donner une identité visuelle forte à l’expérience. 
+
+            La page met en avant l’univers du groupe, leur dernier single, son style musical et son nouveau merchandising, tout en offrant une navigation moderne et dynamique. 
+            Ce projet illustre la créativité et la rapidité d’exécution mises en avant par le BOTW.
+            `,
+        thumbnail: '/img/phx.png',
+        technologies: ['React', 'Next.js', 'TypeScript', 'ThreeJs', 'Tailwind', "GSAP", "Lenis"],
+        github: 'https://github.com/SohamHUG/Phoenix',
+        website: 'https://phoenix-botw.vercel.app/',
+        featured: true,
+    },
+    {
         id: 'our-blog',
         title: 'OurBlog',
         createdAt: '2025-02-13',

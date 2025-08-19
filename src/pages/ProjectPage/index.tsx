@@ -88,9 +88,10 @@ export const ProjectDetailPage: React.FC = () => {
             </div>
 
             <h2 className="text-2xl font-bold mb-4 text-white">À propos du projet</h2>
-            <p className="text-lg leading-relaxed text-white/70 mb-8">
-                {project.longDescription || project.description}
-            </p>
+            <p
+                className="text-lg leading-relaxed text-white/70 mb-8 prose"
+                dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
+            />
 
 
         </motion.section>
