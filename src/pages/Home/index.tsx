@@ -7,7 +7,7 @@ import { ContactForm } from "../../components/ContactForm";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9, } },
 };
 
 export const HomePage: React.FC = () => {
@@ -17,7 +17,7 @@ export const HomePage: React.FC = () => {
     const contactReff = useRef(null);
 
     // const heroInView = useInView(heroRef, { once: true, margin: "-100px" });
-    const projectsInView = useInView(projectsRef, { once: true, margin: "-100px" });
+    const projectsInView = useInView(projectsRef, { once: true, margin: "-250px" });
     const skillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
     const contactInView = useInView(contactReff, { once: true, margin: "-100px" });
 

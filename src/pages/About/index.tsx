@@ -1,64 +1,135 @@
-import React from "react";
+import React, { useRef } from "react";
 import { experiences, personalInfo, skills, studies } from "../../data";
-import { LuBriefcase, LuCode, LuComputer, LuDatabase, LuGitBranch, LuGlobe, LuGraduationCap, LuPalette, LuServer, LuUser } from "react-icons/lu";
-import { motion } from "framer-motion";
+import {
+    LuBriefcase,
+    LuCode,
+    LuComputer,
+    LuDatabase,
+    LuGitBranch,
+    LuGlobe,
+    LuGraduationCap,
+    LuPalette,
+    LuServer,
+    LuUser,
+} from "react-icons/lu";
+import { motion, useInView } from "framer-motion";
+
+// Variants
+const fadeInUp = {
+    hidden: { opacity: 0, y: 80 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const fadeInLeft = {
+    hidden: { opacity: 0, x: -80 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const fadeInRight = {
+    hidden: { opacity: 0, x: 80 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const scaleIn = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
+};
 
 export const AboutPage: React.FC = () => {
+    // Refs + useInView
+    const titleRef = useRef(null);
+    const titleInView = useInView(titleRef, { once: true, margin: "-100px" });
+
+    const photoRef = useRef(null);
+    const photoInView = useInView(photoRef, { once: true, margin: "-100px" });
+
+    const infoRef = useRef(null);
+    const infoInView = useInView(infoRef, { once: true, margin: "-100px" });
+
+    const expRef = useRef(null);
+    const expInView = useInView(expRef, { once: true, margin: "-100px" });
+
+    const studiesRef = useRef(null);
+    const studiesInView = useInView(studiesRef, { once: true, margin: "-100px" });
+
+    const skillsRef = useRef(null);
+    const skillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
+
     return (
         <div className="min-h-screen py-10 px-4 max-w-6xl mx-auto">
             {/* Titre principal */}
             <motion.div
-                initial={{ opacity: 0, }}
-                animate={{ opacity: 1, }}
-                transition={{ duration: 0.5, }}
-                className="text-center mb-20"
+                ref={titleRef}
+                initial="hidden"
+                animate={titleInView ? "visible" : "hidden"}
+                // variants={fadeInLeft}
+                className="mb-10"
             >
-                <h1 className="text-5xl font-bold text-sky-500 mb-6">À propos de moi</h1>
-                <p className="text-lg text-white/90 max-w-3xl mx-auto">
-                    Jeune développeur Fullstack spécialisé en JavaScript (React/Node) et PHP, j’ai acquis une double expertise frontend et backend au cours de mon alternance. Partisan du code propre et des bonnes pratiques, je conçois des interfaces réactives connectées à des backends robustes. Mon objectif : créer des solutions efficaces, centrées sur les besoins utilisateurs, tout en garantissant la qualité et la maintenabilité du code.
-                </p>
+                <motion.h1 variants={fadeInLeft}
+                    className="text-5xl font-bold text-sky-500 max-w-3xl mx-auto mb-6 text-center">
+                    À propos de moi
+                </motion.h1>
+                <motion.p
+                    variants={fadeInRight}
+                    className="text-lg text-white/90 max-w-3xl mx-auto text-left"
+                >
+                    Jeune développeur Fullstack spécialisé en JavaScript (React/Node) et
+                    PHP, j’ai acquis une double expertise frontend et backend au cours de
+                    mon alternance. Partisan du code propre et des bonnes pratiques, je
+                    conçois des interfaces réactives connectées à des backends robustes.
+                    Mon objectif : créer des solutions efficaces, centrées sur les besoins
+                    utilisateurs, tout en garantissant la qualité et la maintenabilité du
+                    code.
+                </motion.p>
             </motion.div>
 
             {/* Image + Infos personnelles + Atouts */}
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-24">
                 {/* Image */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.5, rotate: 60 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
+                    ref={photoRef}
+                    initial="hidden"
+                    animate={photoInView ? "visible" : "hidden"}
+                    variants={scaleIn}
                     className="flex justify-center"
                 >
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
-                        <img src="/img/pfp.jpg" alt="HUGUENIN Soham" className="w-full h-full object-cover" />
+                        <img
+                            src="/img/pfp.jpg"
+                            alt="HUGUENIN Soham"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 </motion.div>
 
                 {/* Infos & Atouts */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
+                    ref={infoRef}
+                    initial="hidden"
+                    animate={infoInView ? "visible" : "hidden"}
+                    variants={fadeInUp}
                     className="lg:col-span-2 space-y-10"
                 >
                     {/* Infos personnelles */}
                     <div className="mx-auto">
                         <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-4">
-                            <LuUser size={30} />
-                            Informations personnelles
+                            <LuUser size={30} /> Informations personnelles
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {personalInfo.map((info, index) => (
-                                <div key={index} className="flex items-center gap-3">
+                                <motion.div
+                                    key={index}
+                                    variants={fadeInRight}
+                                    className="flex items-center gap-3"
+                                >
                                     <div className="p-2 rounded-full bg-zinc-900 text-sky-500">
                                         {info.icon}
                                     </div>
                                     <div>
-                                        <p className="text-sm text-white/40">
-                                            {info.label}
-                                        </p>
+                                        <p className="text-sm text-white/40">{info.label}</p>
                                         <p className="font-medium text-white">{info.value}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
@@ -67,18 +138,21 @@ export const AboutPage: React.FC = () => {
                     <div>
                         <h3 className="text-xl font-semibold text-sky-500 mb-4">Atouts</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
+                            <motion.div variants={scaleIn} className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
                                 <h4 className="font-medium text-white mb-2">Adaptabilité</h4>
                                 <p className="text-white/80">
-                                    Capacité à m’adapter rapidement à de nouvelles technologies et à résoudre des problèmes complexes.
+                                    Capacité à m’adapter rapidement à de nouvelles technologies et
+                                    à résoudre des problèmes complexes.
                                 </p>
-                            </div>
-                            <div className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
+                            </motion.div>
+                            <motion.div variants={scaleIn} className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
                                 <h4 className="font-medium text-white mb-2">Autonomie</h4>
                                 <p className="text-white/80">
-                                    Capable de mener à bien un projet de bout en bout, de la conception à la mise en production, tout en sachant identifier les moments clés pour solliciter de l’aide.
+                                    Capable de mener à bien un projet de bout en bout, de la
+                                    conception à la mise en production, tout en sachant identifier
+                                    les moments clés pour solliciter de l’aide.
                                 </p>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </motion.div>
@@ -86,19 +160,23 @@ export const AboutPage: React.FC = () => {
 
             {/* Expériences */}
             <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                ref={expRef}
+                initial="hidden"
+                animate={expInView ? "visible" : "hidden"}
+                variants={fadeInUp}
                 className="mb-15"
             >
                 <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-10">
-                    <LuBriefcase className="text-sky-500" size={30} />
-                    Expérience professionnelle
+                    <LuBriefcase className="text-sky-500" size={30} /> Expérience
+                    professionnelle
                 </h2>
-
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
-                        <div key={index} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                        <motion.div
+                            key={index}
+                            variants={fadeInUp}
+                            className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow"
+                        >
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                                 <div className="flex items-center gap-2 text-sm">
@@ -110,166 +188,175 @@ export const AboutPage: React.FC = () => {
                             </div>
                             <div className="mb-3 text-lg flex items-center gap-2">
                                 <span className="text-sky-500">{exp.company}</span>
-                                <span className="text-white/40 text-sm">
-                                    • {exp.location}
-                                </span>
+                                <span className="text-white/40 text-sm">• {exp.location}</span>
                             </div>
                             <p className="text-white">{exp.description}</p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </motion.section>
 
             {/* Formation */}
-            <section>
+            <motion.section
+                ref={studiesRef}
+                initial="hidden"
+                animate={studiesInView ? "visible" : "hidden"}
+                variants={fadeInLeft}
+                className="mb-15"
+            >
                 <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-10">
-                    <LuGraduationCap className="text-sky-500" size={30} />
-                    Formation
+                    <LuGraduationCap className="text-sky-500" size={30} /> Formation
                 </h2>
-
                 <div className="space-y-8">
                     {studies.map((exp, index) => (
-                        <div key={index} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                        <motion.div
+                            key={index}
+                            variants={fadeInRight}
+                            className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow"
+                        >
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                                 <div className="flex items-center gap-2 text-sm">
                                     <span className="text-white/40">{exp.period}</span>
-                                    {exp.see &&
+                                    {exp.see && (
                                         <span className="px-2 py-1 rounded-full bg-blue-900 text-xs text-white font-medium">
-                                            <a href={'https://diplome.3wa.fr/huguenin-soham'} target="_blank" rel="noopener noreferrer">{exp.see}</a>
+                                            <a
+                                                href={"https://diplome.3wa.fr/huguenin-soham"}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {exp.see}
+                                            </a>
                                         </span>
-                                    }
+                                    )}
                                 </div>
                             </div>
                             <div className="mb-3 text-lg flex items-center gap-2">
                                 <span className="text-sky-500">{exp.institution}</span>
-                                <span className="text-white/40 text-sm">
-                                    • {exp.location}
-                                </span>
+                                <span className="text-white/40 text-sm">• {exp.location}</span>
                             </div>
                             <p className="text-white">{exp.description}</p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
             {/* Compétences */}
-
-            <section className="mt-20">
+            <motion.section
+                ref={skillsRef}
+                initial="hidden"
+                animate={skillsInView ? "visible" : "hidden"}
+                variants={scaleIn}
+                className="mt-20"
+            >
                 <h2 className="text-2xl text-sky-500 font-bold flex items-center gap-3 mb-10">
-                    <LuCode className="text-sky-500" size={30} />
-                    Compétences
+                    <LuCode className="text-sky-500" size={30} /> Compétences
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Frontend */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white capitalize mb-4">
-                            <LuComputer />
-                            Frontend
+                            <LuComputer /> Frontend
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.frontend.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Backend */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white capitalize mb-4">
-                            <LuServer />
-                            Backend
+                            <LuServer /> Backend
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.backend.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
-                    {/* databases */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    {/* Databases */}
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
-                            <LuDatabase />
-                            Base de données
+                            <LuDatabase /> Base de données
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.databases.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Versionnement & DevOps */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
-                            <LuGitBranch />
-                            Versionnement & DevOps
+                            <LuGitBranch /> Versionnement & DevOps
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.versionControlAndDevOps.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Designs */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
-                            <LuPalette />
-                            Design
+                            <LuPalette /> Design
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.designTools.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
-                    {/* Cms */}
-                    <div className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
+                    {/* CMS */}
+                    <motion.div variants={fadeInUp} className="p-6 border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg transition-shadow">
                         <h3 className="text-xl font-semibold flex items-center gap-3 text-white mb-4">
-                            <LuGlobe />
-                            CMS
+                            <LuGlobe /> CMS
                         </h3>
                         <ul className="flex flex-wrap gap-2">
                             {skills.cms.map((item, index) => (
-
-                                <li key={index} className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm">
+                                <li
+                                    key={index}
+                                    className="px-3 py-1 rounded-full bg-blue-900 text-white border border-sky-500 text-sm"
+                                >
                                     {item}
                                 </li>
-
                             ))}
                         </ul>
-                    </div>
-
-
-
+                    </motion.div>
                 </div>
-            </section>
-
-
+            </motion.section>
         </div>
     );
 };

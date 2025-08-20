@@ -17,8 +17,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     return (
         <motion.div
-            initial={{ opacity: 0, }}
-            animate={{ opacity: 1, }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeInOut" }}
             onClick={navTo}
             className="relative overflow-hidden border border-sky-500 p-6 rounded-xl bg-blue-950/50 hover:shadow-lg flex flex-col justify-between group hover:scale-101 hover:cursor-pointer transition-all duration-300"

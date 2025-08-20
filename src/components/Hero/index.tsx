@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5, }}
                     animate={{ opacity: 1, scale: 1, }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
                     className="md:w-1/2 md:mt-10 "
                 >
                     <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80">
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20, }}
                         animate={{ opacity: 1, y: 0, }}
-                        transition={{ duration: 0.5, }}
+                        transition={{ duration: 1, }}
                         className=" md:mt-0"
                     >
                         <span className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium bg-blue-600 text-white mt-3 mb-6">Développeur Fullstack</span>
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: 20, }}
                         animate={{ opacity: 1, y: 0, }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
                         className="text-4xl md:text-6xl lg:text-6xl font-bold mb-6 leading-tight py-3 bg-gradient-to-r from-blue-500 to-pink-400 bg-clip-text text-transparent"
                     >
                         Soham HUGUENIN
@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
                     <motion.p
                         initial={{ opacity: 0, y: 20, }}
                         animate={{ opacity: 1, y: 0, }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 1, delay: 0.4 }}
                         className="max-w-[700px] text-lg md:text-xl text-white mb-8"
                     >
                         Développeur fullstack passionné, je conçois des solutions web modernes et dynamiques, en alliant performance et expérience utilisateur pour donner vie à vos projets.
@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20, }}
                         animate={{ opacity: 1, y: 0, }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start  z-30"
                     >
                         <Link to={'/projects'} className="inline-block">
