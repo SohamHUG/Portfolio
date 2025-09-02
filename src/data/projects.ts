@@ -19,22 +19,38 @@ export const projects: IProject[] = [
             La page met en avant l’univers du groupe, leur dernier single, son style musical et son nouveau merchandising, tout en offrant une navigation moderne et dynamique. 
             Ce projet illustre la créativité et la rapidité d’exécution mises en avant par le BOTW.
             `,
-        thumbnail: '/img/phx.png',
+        thumbnail: '/img/phx.jpg',
         technologies: ['React', 'Next.js', 'TypeScript', 'ThreeJs', 'Tailwind', "GSAP", "Lenis"],
         github: 'https://github.com/SohamHUG/Phoenix',
         website: 'https://phoenix-botw.vercel.app/',
         featured: true,
     },
     {
+        id: 'sakura',
+        title: 'Sakura',
+        createdAt: '2025-02-13',
+        description: 'Site vitrine moderne pour un restaurant japonais fictif, avec un design élégant et immersif.',
+        longDescription: `Sakura est un site vitrine conçu pour un restaurant japonais fictif, pensé comme une véritable expérience immersive. 
+            Le projet met en valeur l’identité visuelle du restaurant avec un logo personnalisé, une palette de couleurs sobre et raffinée, ainsi qu’une mise en page élégante inspirée des cartes de restaurants traditionnelles. 
+            Côté front-end, le site a été développé avec React, TypeScript et Tailwind CSS, en y intégrant des animations fluides via GSAP. 
+            Le menu dynamique est entièrement interactif, avec un système de filtres par catégorie. 
+            Le projet comprend également une section “À propos”, une section contact avec formulaire stylisé, et un design responsive pour une expérience optimale sur mobile et desktop.`,
+        thumbnail: '/img/sakura.jpg',
+        technologies: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Redux', 'GSAP',],
+        github: 'https://github.com/SohamHUG/Sakura',
+        website: 'https://sakura-restojap.vercel.app/',
+        featured: true,
+    },
+    {
         id: 'our-blog',
         title: 'OurBlog',
-        createdAt: '2025-02-13',
+        createdAt: '2025-09-03',
         description: 'Plateforme permettant aux utilisateurs de consulter, commenter et publier des articles par catégorie.',
         longDescription: `OurBlog est une application web de type blog permettant aux utilisateurs de consulter, commenter et publier des articles classés par catégories. Ce projet, réalisé dans le cadre de mon projet de fin de formation, m’a permis de valider mon titre de Développeur Fullstack. J’y ai développé une API REST robuste avec Node.js et Express, incluant un système d’authentification sécurisé via JWT, une gestion des rôles utilisateurs (administrateur, auteur, lecteur), ainsi que l’implémentation complète des opérations CRUD pour les articles et les commentaires. Côté front-end, l’interface a été conçue avec React, Redux et Vite, pour une expérience fluide et moderne.`,
         thumbnail: '/img/ourblog.png',
         technologies: ['React', 'JavaScript', 'Vite', 'Redux', 'Node.js', 'Express', 'API', 'Scss',],
         github: 'https://github.com/SohamHUG/OurBlog',
-        website: 'https://our-blog-client.vercel.app/',
+        // website: 'https://our-blog-client.vercel.app/',
         featured: true,
     },
     {
