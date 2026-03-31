@@ -2,6 +2,17 @@ import { IProject } from "../types/IProjects"
 
 export const projects: IProject[] = [
     {
+        id: 'infovegetal',
+        title: 'Infovégétal',
+        createdAt: '2025-12-20',
+        description: 'Site web de vente de plantes en ligne de producteurs à professionnels.',
+        longDescription: `Ce projet est une refonte d'Infovégétal, une plateforme de vente de plantes en ligne, connectant des producteurs européens avec les professionnels du secteur horticole. Le site a été développé avec React et Laravel, offrant une interface utilisateur moderne et réactive, ainsi qu’un backend robuste pour gérer les produits, les commandes et les utilisateurs.`,
+        thumbnail: '/img/infov.jpg',
+        technologies: ['React', 'TypeScript', 'Laravel', 'MySQL'],
+        website: 'https://new.infovegetal.com/',
+        featured: true,
+    },
+    {
         id: 'phx',
         title: 'Phoenix',
         createdAt: '2025-08-18',

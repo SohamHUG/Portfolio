@@ -2,6 +2,15 @@ import { IExperiences } from "../types/IExperiences";
 
 export const experiences: IExperiences[] = [
     {
+        title: "Développeur",
+        company: "Les Éditions corses",
+        location: "Corse",
+        type: "CDI",
+        period: "Avril 2026 - Aujourd'hui",
+        description:
+            "Conception et développement de sites web sur mesure pour les clients de l’agence. Collaboration étroite avec les équipes de design et de marketing pour créer des expériences utilisateur engageantes et performantes, tout en respectant les délais et les exigences du projet.",
+    },
+    {
         title: "Développeur Fullstack en alternance",
         company: "Devali",
         location: "France - Réunion",

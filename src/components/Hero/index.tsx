@@ -23,9 +23,13 @@ export const Hero: React.FC = () => {
                         </div>
                         <div className="absolute -bottom-4 -right-0 bg-card rounded-lg py-2 px-4 shadow-lg border border-sky-500 bg-blue-950/40 backdrop-blur-sm">
                             <div className="flex items-center gap-2">
-                                <span className="flex h-3 w-3 rounded-full bg-green-500"></span>
+                                {/* <span className="flex h-3 w-3 rounded-full bg-green-500"></span>
                                 <span className="text-sm font-medium text-white">
                                     Actuellement disponible
+                                </span> */}
+                                <span className="flex h-3 w-3 rounded-full bg-red-500"></span>
+                                <span className="text-sm font-medium text-white">
+                                    Actuellement indisponible
                                 </span>
                             </div>
                         </div>
