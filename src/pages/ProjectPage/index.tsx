@@ -18,7 +18,7 @@ export const ProjectDetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="py-5 px-4 max-w-4xl mx-auto"
+            className="py-5 px-4 max-w-4xl mx-auto mb-15"
         >
             <button
                 onClick={() => navigate("/projects")}
@@ -71,7 +71,7 @@ export const ProjectDetailPage: React.FC = () => {
                         href={project.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-linear-to-r from-sky-500 to-blue-400 text-white px-4 py-2 rounded hover:scale-110 transition"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500/80 via-blue-500/80 to-violet-500/80 text-white px-4 py-2 rounded hover:scale-105 hover:from-sky-500 hover:via-blue-500 hover:to-violet-500 transition-all duration-300"
                     >
                         <LuGlobe size={20} />
                         Voir le site
@@ -86,12 +86,20 @@ export const ProjectDetailPage: React.FC = () => {
                     className="w-full h-auto object-cover"
                 />
             </div>
+            <div className="border border-sky-500 rounded-xl bg-blue-950/50 p-5 relative overflow-hidden">
+                {/* bottom left */}
+                <span className="absolute w-30 h-30 bg-gradient-to-br from-sky-400 via-blue-500 to-violet-500 opacity-30 rounded-full blur-2xl bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4 transition-all duration-700 pointer-events-none" />
+                {/* top right */}
+                <span className="absolute w-40 h-40 bg-gradient-to-tl from-pink-400 via-fuchsia-500 to-violet-500 opacity-30 rounded-full blur-2xl top-0 right-0 transform translate-x-1/4 -translate-y-1/4 transition-all duration-700 pointer-events-none" />
 
-            <h2 className="text-2xl font-bold mb-4 text-white">À propos du projet</h2>
-            <p
-                className="text-lg leading-relaxed text-white/70 mb-8 prose"
-                dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
-            />
+                <h2 className="text-2xl font-bold mb-4 text-white">À propos du <span className="text-sky-400">projet</span> :</h2>
+                <p
+                    className="text-lg leading-relaxed text-gray-200 prose"
+                    dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }}
+                />
+            </div>
+
+
 
 
         </motion.section>

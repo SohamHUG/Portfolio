@@ -47,7 +47,7 @@ interface HeroModelProps {
 function HeroModel({ onReady }: HeroModelProps) {
     const modelRef = useRef<THREE.Group | null>(null);
     const introProgressRef = useRef(0);
-    const gltf = useLoader(GLTFLoader, '/models/source/The%20MODEL%202.glb');
+    const gltf = useLoader(GLTFLoader, '/models/source/The%20MODEL.glb');
 
     const { scene, scale, baseY, materials } = useMemo(() => {
         const clone = gltf.scene.clone(true);
@@ -342,6 +342,7 @@ const Background: React.FC<BackgroundProps> = ({ onModelReady }) => {
                 >
                     {/* <fog attach="fog" args={['#08111f', 6, 18]} /> */}
                     <ambientLight intensity={1.85} color="#f8fbff" />
+                    <directionalLight position={[0, 6, 1.5]} intensity={1.25} color="#ffffff" />
                     <directionalLight position={[4, 5, 6]} intensity={1.35} color={SITE_SKY} />
                     <directionalLight position={[-5, -2, 3]} intensity={0.95} color={SITE_PINK} />
 
@@ -354,7 +355,7 @@ const Background: React.FC<BackgroundProps> = ({ onModelReady }) => {
                 </Canvas>
             </div>
 
-            <div className="absolute inset-0 bg-[#07111d]/7" />
+            {/* <div className="absolute inset-0 bg-[#07111d]/7" /> */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.14),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(244,114,182,0.16),_transparent_24%)]" />
         </div>
     );
