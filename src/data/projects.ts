@@ -8,7 +8,7 @@ export const projects: IProject[] = [
         description: 'Site web de vente de plantes en ligne de producteurs à professionnels.',
         longDescription: `Ce projet est une refonte d'Infovégétal, une plateforme de vente de plantes en ligne, connectant des producteurs européens avec les professionnels du secteur horticole. Le site a été développé avec React et Laravel, offrant une interface utilisateur moderne et réactive, ainsi qu’un backend robuste pour gérer les produits, les commandes et les utilisateurs.`,
         thumbnail: '/img/infov.jpg',
-        technologies: ['React', 'TypeScript', 'Laravel', 'MySQL'],
+        technologies: ['React', 'TypeScript', 'Laravel', 'PHP', 'MySQL'],
         website: 'https://new.infovegetal.com/',
         featured: true,
     },
@@ -93,7 +93,7 @@ export const projects: IProject[] = [
         description: 'Site vitrine personnel développé pour présenter mes projets, compétences et parcours de manière claire et interactive.',
         longDescription: `Ce portfolio a été conçu comme un projet technique à part entière. Il met en valeur mes compétences en React, TypeScript et en design moderne avec Tailwind CSS. L’application est construite avec Vite pour des performances optimales. Le site est responsive, accessible, et optimisé pour offrir une navigation fluide sur tous les supports.`,
         thumbnail: '/img/portfolio.png',
-        technologies: ['React', 'Vite', 'TypeScript', 'Tailwind',],
+        technologies: ['React', 'Vite', 'TypeScript', 'Tailwind', 'ThreeJs', 'Framer Motion'],
         github: 'https://github.com/SohamHUG/Portfolio',
         website: '',
         featured: false

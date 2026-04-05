@@ -65,12 +65,19 @@ export const AboutPage: React.FC = () => {
                 // variants={fadeInLeft}
                 className="mb-10"
             >
-                <motion.h1 variants={fadeInLeft}
+                <motion.h1
+                    variants={{
+                        hidden: { opacity: 0, y: 80 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } },
+                    }}
                     className="text-5xl font-bold text-sky-500 max-w-3xl mx-auto mb-6 text-center">
                     À propos de moi
                 </motion.h1>
                 <motion.p
-                    variants={fadeInRight}
+                    variants={{
+                        hidden: { opacity: 0, y: 80 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.5 } },
+                    }}
                     className="text-lg text-white/90 max-w-3xl mx-auto text-left"
                 >
                     Jeune développeur Fullstack spécialisé en JavaScript (React/Node) et
@@ -90,7 +97,10 @@ export const AboutPage: React.FC = () => {
                     ref={photoRef}
                     initial="hidden"
                     animate={photoInView ? "visible" : "hidden"}
-                    variants={scaleIn}
+                    variants={{
+                            hidden: { opacity: 0, scale: 0.5, rotate: -90 },
+                            visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.8, delay: 0.9 } },
+                    }}
                     className="flex justify-center"
                 >
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-sky-500 shadow-xl glow">
@@ -107,7 +117,10 @@ export const AboutPage: React.FC = () => {
                     ref={infoRef}
                     initial="hidden"
                     animate={infoInView ? "visible" : "hidden"}
-                    variants={fadeInUp}
+                    variants={{
+                        hidden: { opacity: 0, y: 80 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.6 } },
+                    }}
                     className="lg:col-span-2 space-y-10"
                 >
                     {/* Infos personnelles */}
@@ -119,7 +132,10 @@ export const AboutPage: React.FC = () => {
                             {personalInfo.map((info, index) => (
                                 <motion.div
                                     key={index}
-                                    variants={fadeInRight}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 80 },
+                                        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } },
+                                    }}
                                     className="flex items-center gap-3"
                                 >
                                     <div className="p-2 rounded-full bg-zinc-900 text-sky-500">
@@ -138,14 +154,26 @@ export const AboutPage: React.FC = () => {
                     <div>
                         <h3 className="text-xl font-semibold text-sky-500 mb-4">Atouts</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <motion.div variants={scaleIn} className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: 80 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.9 } },
+                                }}
+                                className="p-4 rounded-lg border border-sky-400 bg-blue-950/50"
+                            >
                                 <h4 className="font-medium text-white mb-2">Adaptabilité</h4>
                                 <p className="text-white/80">
                                     Capacité à m’adapter rapidement à de nouvelles technologies et
                                     à résoudre des problèmes complexes.
                                 </p>
                             </motion.div>
-                            <motion.div variants={scaleIn} className="p-4 rounded-lg border border-sky-400 bg-blue-950/50">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: 80 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 1.0 } },
+                                }}
+                                className="p-4 rounded-lg border border-sky-400 bg-blue-950/50"
+                            >
                                 <h4 className="font-medium text-white mb-2">Autonomie</h4>
                                 <p className="text-white/80">
                                     Capable de mener à bien un projet de bout en bout, de la

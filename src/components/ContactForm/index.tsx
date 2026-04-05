@@ -143,8 +143,13 @@ export const ContactForm: React.FC = () => {
                 >
                     <a
                         href="mailto:69.hugue@gmail.com"
-                        className="group h-full p-2 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
+                        className="relative overflow-hidden group h-full p-2 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
                     >
+                        {/* top left */}
+                        <span className="absolute w-30 h-30 bg-gradient-to-br from-sky-400 via-blue-500 to-violet-500 opacity-0 group-hover:opacity-30 rounded-full blur-2xl top-0 left-0 transform -translate-x-1/4 -translate-y-1/4 transition-all duration-700 pointer-events-none" />
+                        {/* bottom right */}
+                        <span className="absolute w-30 h-30 bg-gradient-to-tl from-pink-400 via-fuchsia-500 to-violet-500 opacity-0 group-hover:opacity-30 rounded-full blur-2xl bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 transition-all duration-700 pointer-events-none" />
+
                         <MdMail size={35} />
                         <span className="text-sky-500 font-bold">Email</span>
                         <span className="text-white/50 flex items-center justify-center gap-1">
@@ -155,8 +160,13 @@ export const ContactForm: React.FC = () => {
 
                     <a
                         href="https://www.linkedin.com/in/soham-huguenin/" target="_blank" rel="noopener noreferrer"
-                        className="group h-full p-4 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
+                        className="relative overflow-hidden group h-full p-4 w-full flex flex-col justify-center items-center gap-2 text-white border border-sky-400 rounded-xl bg-blue-950/50 hover:shadow-lg hover:scale-101 transition-all duration-300"
                     >
+                        {/* top left */}
+                        <span className="absolute w-30 h-30 bg-gradient-to-br from-sky-400 via-blue-500 to-violet-500 opacity-0 group-hover:opacity-30 rounded-full blur-2xl top-0 left-0 transform -translate-x-1/4 -translate-y-1/4 transition-all duration-700 pointer-events-none" />
+                        {/* bottom right */}
+                        <span className="absolute w-30 h-30 bg-gradient-to-tl from-pink-400 via-fuchsia-500 to-violet-500 opacity-0 group-hover:opacity-30 rounded-full blur-2xl bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 transition-all duration-700 pointer-events-none" />
+
                         <FaLinkedin size={30} />
                         <span className="text-sky-500 font-bold">Linkedin</span>
                         <span className="text-white/50 flex items-center justify-center gap-1">
@@ -165,7 +175,7 @@ export const ContactForm: React.FC = () => {
                         </span>
                     </a>
                 </motion.div>
-
+                
                 <form
                     ref={form}
                     onSubmit={sendEmail}
@@ -233,7 +243,7 @@ export const ContactForm: React.FC = () => {
                         <button
                             type="submit"
                             // disabled={state.isSubmitting || !canSubmit}
-                            className="w-full py-3 px-4 text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-400 hover:from-blue-400 hover:to-sky-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
+                            className="w-full py-3 px-4 text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-sky-500/80 via-blue-500/80 to-violet-500/80 hover:from-blue-500 hover:via-blue-500 hover:to-violet-500 hover:brightness-110 hover:cursor-pointer hover:scale-101"
                         >
                             {state.isSubmitting ? (
                                 <span className="flex items-center justify-center gap-2">

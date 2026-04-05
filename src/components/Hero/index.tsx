@@ -71,13 +71,13 @@ export const Hero: React.FC = () => {
                         <Link to={'/projects'} className="inline-block">
                             <button className="relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 group overflow-hidden bg-transparent border border-sky-500 rounded-md text-white hover:cursor-pointer shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all duration-300 h-9 px-4 py-2 gap-2">
                                 {/* Background animation */}
-                                <span className="absolute inset-0 bg-sky-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0" />
-
+                                <span className="absolute inset-0 bg-gradient-to-r from-sky-500 via-blue-500 to-violet-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0" />
                                 {/* Text + Icon in front */}
                                 <span className="relative z-10 flex items-center gap-2 group-hover:text-white">
                                     Voir mes projets
                                     <FaArrowRight />
                                 </span>
+
                             </button>
                         </Link>
                         <a href="/Doc/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">

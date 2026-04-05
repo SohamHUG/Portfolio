@@ -34,7 +34,7 @@ export const HomePage: React.FC = () => {
                 variants={fadeInUp}
                 className="flex flex-col items-center max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto mb-20"
             >
-                <h2 className="text-3xl font-bold text-sky-500 mb-6">Mes projets</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">Mes <span className="text-sky-500">projets</span></h2>
                 <ProjectsList limit={3} featured={true} />
             </motion.section>
 
@@ -45,8 +45,8 @@ export const HomePage: React.FC = () => {
                 variants={fadeInUp}
                 className="my-50 max-w-8/10 md:max-w-9/10 xl:max-w-7xl mx-auto"
             >
-                <h2 className=" text-center text-3xl text-sky-500 font-bold flex items-center justify-center gap-3 mb-10">
-                    Mes compétences
+                <h2 className=" text-center text-3xl text-white font-bold flex items-center justify-center gap-3 mb-10">
+                    Mes <span className="text-sky-500">compétences</span>
                 </h2>
                 <SkillsHome />
             </motion.section>

@@ -122,6 +122,7 @@ function HeroModel({ onReady }: HeroModelProps) {
     );
 }
 
+
 function ParticleField() {
     const innerPointsRef = useRef<THREE.Points | null>(null);
     const outerPointsRef = useRef<THREE.Points | null>(null);

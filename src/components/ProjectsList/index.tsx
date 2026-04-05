@@ -27,7 +27,7 @@ export const ProjectsList: React.FC<ProjectsListProps> = ({ limit, featured }) =
             {limit && (
                 <div className="flex justify-center ">
                     <Link to="/projects"
-                        className="flex gap-3 items-center content-center justify-center py-3 px-4 h-10 bg-linear-to-r from-sky-500 to-blue-400 text-white rounded-lg transition-all duration-300 hover:scale-110"
+                        className="flex gap-3 items-center content-center justify-center py-3 px-4 h-10 bg-gradient-to-r from-sky-500 via-blue-500 to-violet-500 text-white rounded-lg transition-all duration-300 hover:scale-110"
                     >
                         Voir tous les projets
                         <LuArrowRight size={19} />
