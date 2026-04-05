@@ -3,7 +3,7 @@ import { IExperiences } from "../types/IExperiences";
 export const experiences: IExperiences[] = [
     {
         title: "Développeur",
-        company: "Les Éditions corses",
+        company: "Les Éditions Corses",
         location: "Corse",
         type: "CDI",
         period: "Avril 2026 - Aujourd'hui",

@@ -4,7 +4,7 @@ import { FaBars, FaTimes, FaGithub } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const Header = forwardRef<HTMLDivElement>((props, ref) => {
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [hasScrolled, setHasScrolled] = useState(false);
     const location = useLocation();
@@ -14,7 +14,7 @@ const Header = forwardRef<HTMLDivElement>((props, ref) => {
         setIsOpen((prev) => !prev);
     };
 
-    console.log(props)
+    // console.log(props)
 
     const closeMenu = (): void => setIsOpen(false);
 

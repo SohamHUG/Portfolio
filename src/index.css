@@ -1,5 +1,40 @@
 @import "tailwindcss";
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* .background {
+  background-image: linear-gradient(252.44deg, rgb(4, 3, 1) 39.56%, rgb(255, 83, 4) 100%), url(/img/noise_texture.png);
+
+  /* bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.26),_transparent_34%),radial-gradient(circle_at_right,_rgba(244,114,182,0.16),_transparent_30%),linear-gradient(180deg,_#08111f_0%,_#0b1324_42%,_#070b14_100%)]   
+} */
+
+.background {
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.26), transparent 34%),
+    radial-gradient(circle at right, rgba(244, 114, 182, 0.16), transparent 30%),
+    linear-gradient(180deg, #08111f 0%, #0b1324 42%, #070b14 100%),
+    url(/img/noise_texture.png);
+}
+
 .grecaptcha-badge {
   visibility: hidden !important;
 }
